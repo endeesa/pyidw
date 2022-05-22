@@ -11,7 +11,7 @@ pandas = "^1.4.2"
 geopandas = "^0.10.2"
 Fiona = "^1.8.21"
 rasterio = "^1.2.10"
-sklearn = "^0.0"
+scikit-learn = "^1.0.2"
 matplotlib = "^3.5.2"
 
 [tool.poetry.dev-dependencies]
