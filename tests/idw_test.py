@@ -1,7 +1,4 @@
-import unittest
+import pytest
 
-class MultiplicationTestCase(unittest.TestCase):
-
-    def test_zero(self):
-        
-        self.assertEqual(1, 1) # dummy test class
+def test_dummy():
+    assert True

@@ -1,7 +1,7 @@
 
 # All in one IDW package for python
 > **This is an example map created using the pyidw library.**
-> ![idw interpolated map using pyidw](https://github.com/yahyatamim/pyidw/blob/master/images/output_map.png?raw=true)
+> ![idw interpolated map using pyidw](docs/images/output_map.png)
 
 ## Features
  1. Simple IDW Interpolation.
@@ -61,7 +61,7 @@ For those who are not familiar with shapefile, every shapefile consists of seven
 
 The ***Bangladesh_Border.shp*** is an ESRI polygon shapefile that covers all the areas of the country Bangladesh. We will use this shapefile to define the calculation extent for IDW interpolation. And finally, the ***Bangladesh_Elevation.tif*** file which is a raster file containing elevation information in meter, We don't need this file for standard IDW interpolation but with regression_idw, we will use this file as an external covariable. All the files and their spatial dimension is shown below.
 
-![Images of input files with their spatial dimensions.](https://github.com/yahyatamim/pyidw/raw/master/images/point_extent_elevation.png)
+![Images of input files with their spatial dimensions.](https://github.com/yahyatamim/pyidw/raw/master/docs/docs/images/point_extent_elevation.png)
 
 ---
 ### idw_interpolation()
@@ -86,7 +86,7 @@ It will take a few seconds to complete, then a map image like below will be show
 - The fourth parameter ***power=*** is an optional parameter with a default value of 2, this is the power parameter from [idw equation](https://en.wikipedia.org/wiki/Inverse_distance_weighting#:~:text=A%20general%20form,the%20power%20parameter.).
 - The fifth parameter ***search_radious=*** is also an optional parameter with a default value of 4, it determines how many nearest points will be used for idw calculation.
 - The sixth parameter ***output_resolution=*** is also optional with default value of 250. This parameter defines the maximum height or width (which one is higher) of the resulting ***\_idw.tif*** file in pixel.
->   ![Standard idw interpolated map](https://github.com/yahyatamim/pyidw/raw/master/images/standard_idw_interpolated_map.png)
+>   ![Standard idw interpolated map](docs/images/standard_idw_interpolated_map.png)
 
 > Output map  from **idw_interpolation()** function. 
 ---
@@ -129,7 +129,7 @@ show_map(
     return_figure=False,
 )
 ```
-> ![Show_map() function example image](https://github.com/yahyatamim/pyidw/raw/master/images/show_map_example.png)
+> ![Show_map() function example image](docs/images/show_map_example.png)
 
 Below is an example code of setting ***return_figure=*** to **True** and adding some extra elements to the map 🗺 image.
 ```python
@@ -148,7 +148,7 @@ ax.set_ylabel("Latitude")
 cbar.set_label("maximum annual temperature")
 plt.show()
 ```
-> ![show_map() example with axis label](https://github.com/yahyatamim/pyidw/raw/master/images/show_map_example_with_axis_label.png)
+> ![show_map() example with axis label](docs/images/show_map_example_with_axis_label.png)
 ---
 ## regression_idw_interpolation()
 This function is quite different than regular IDW interpolation as it incorporates external raster covariable, polynomial regression and r_squared value. This is an experimental method and we don't recommend using it as it doesn't always produce reliable output and accuracy score are also lower than regular idw interpolation. It take same parameters as ***idw_interpolation()*** function only with 2 extra parameters namely ***input_raster_file=*** which is the raster covariable.  input_raster file should be larger than ***extent_shapefile***. The other parameter is ***polynomial_degre=*** with a default value set to 1 which would define the [polynomial regression equation](https://numpy.org/doc/stable/reference/generated/numpy.polyfit.html).  An example code for ***regression_idw_interpolation()*** is given below.
@@ -166,7 +166,7 @@ idw.regression_idw_interpolation(
     output_resolution=250,
 )
 ```
-> ![Polynomial regression idw interpolation](https://github.com/yahyatamim/pyidw/raw/master/images/regression_idw.png)
+> ![Polynomial regression idw interpolation](docs/images/regression_idw.png)
 ---
 ## accuracy_regression_idw()
 This function is similar to **accuracy_standard_idw()**  function. An example code is given below.
