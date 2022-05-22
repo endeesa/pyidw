@@ -106,11 +106,10 @@ def crop_resize(input_raster_filename='',
 
 def blank_raster(extent_shapefile=''):
     calculationExtent = gpd.read_file(extent_shapefile)
-
-    minX = floor(calculationExtent.bounds.minx)
-    minY = floor(calculationExtent.bounds.miny)
-    maxX = ceil(calculationExtent.bounds.maxx)
-    maxY = ceil(calculationExtent.bounds.maxy)
+    minX = floor(calculationExtent.total_bounds[0])
+    minY = floor(calculationExtent.total_bounds[1])
+    maxX = ceil(calculationExtent.total_bounds[2])
+    maxY = ceil(calculationExtent.total_bounds[3])
     longRange = sqrt((minX - maxX)**2)
     latRange = sqrt((minY - maxY)**2)
 
@@ -214,7 +213,8 @@ def idw_interpolation(input_point_shapefile='',
         with rasterio.open(output_filename, 'w', **baseRasterFile.meta) as std_idw:
             std_idw.write(idw_array, 1)
 
-        show_map(output_filename)
+        _, ax, _ = show_map(output_filename, return_figure=True)
+        return ax
 
 
 #################################################
