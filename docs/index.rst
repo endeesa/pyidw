@@ -10,7 +10,6 @@ Welcome to pyidw's documentation!
    :maxdepth: 2
    :caption: Contents:
    
-   source/api/multiplication
 
 
 Indices and tables
