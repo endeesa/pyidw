@@ -213,9 +213,8 @@ def idw_interpolation(input_point_shapefile='',
         output_filename = input_point_shapefile.rsplit('.', 1)[0] + '_idw.tif'
         with rasterio.open(output_filename, 'w', **baseRasterFile.meta) as std_idw:
             std_idw.write(idw_array, 1)
-
-        _, ax, _ = show_map(output_filename, return_figure=True)
-        return ax
+            
+        return output_filename
 
 
 #################################################
